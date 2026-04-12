@@ -1,0 +1,13 @@
+.Rprofile
+.Rhistory
+.RData
+.Rproj.user
+
+.venv/
+__pycache__/
+*.pyc
+
+renv/
+renv.lock
+
+mcad.duckdb

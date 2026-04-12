@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MCAD Overzicht</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <a href="/" class="back-button">← Terug naar overzicht</a>
+    <h1>Tabel: {{ table_name }}</h1>
+    <table>
+        <tr>
+            {% for column in columns %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in data %}
+        <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
