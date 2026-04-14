@@ -2,4 +2,4 @@
 
 renv::init()
 options(Ncpus = 2)
-renv::install(c("jsonlite", "duckdb", "duckplyr"))
+renv::install(c("jsonlite", "dbplyr", "duckplyr", "duckdb"))
