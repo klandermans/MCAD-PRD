@@ -41,7 +41,8 @@ def show_table(table_name):
         result = con.execute(f'SELECT * FROM "{table_name}"')
         columns = [desc[0] for desc in result.description]
         data = result.fetchall()
-        return render_template("table.html", table_name=table_name, columns=columns, data=data)
+        row_count = len(data)
+        return render_template("table.html", table_name=table_name, columns=columns, data=data, row_count=row_count)
     except Exception as e:
         return f"Error: {str(e)}", 500
     finally:
