@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
-    <title>MCAD Overzicht</title>
+    <title>MCAD Overview</title>
     <link rel="stylesheet" href="/static/style.css">
     <link rel="icon" type="image/png" href="/static/assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,12 +12,12 @@
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
-        Overzicht
+        Overview
     </a>
     
     <div class="table-header">
-        <h1>Tabel: {{ table_name }}</h1>
-        <p>Totaal aantal rijen: {{ row_count }}</p>
+        <h1>Table: {{ table_name }}</h1>
+        <p>Total rows: {{ row_count }}</p>
     </div>
 
     <div class="table-wrapper">
@@ -42,7 +42,7 @@
     </div>
 
     <script>
-        // Scroll naar gegeven row in de table
+        // Scroll to given row in the table
         function scrollToTarget() {
             const hash = window.location.hash;
             if (hash && hash.startsWith('#row-')) {

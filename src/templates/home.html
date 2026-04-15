@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
-    <title>MCAD Overzicht</title>
+    <title>MCAD Overview</title>
     <link rel="stylesheet" href="/static/style.css">
     <link rel="icon" type="image/png" href="/static/assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="home-center">
     <div class="content-fade">
-        <h1>MCAD Overzicht</h1>
-        <p>Analyse op de Marine Cyber Attack Database van NHL Stenden</p>
+        <h1>MCAD Overview</h1>
+        <p>Analysis of the Marine Cyber Attack Database by NHL Stenden</p>
         <p class="footer-link"><a href="https://maritimecybersecurity.nl/" target="_blank" class="cyber-link">maritimecybersecurity.nl</a></p>
         
         {% if table_names %}
@@ -20,25 +20,25 @@
         </div>
         {% else %}
         <div class="empty-state">
-            <p>Geen tables gevonden, run eerst main.r om data te krijgen</p>
+            <p>No tables found, run main.r first to get data</p>
         </div>
         {% endif %}
 
         <form action="/" method="get" class="search-form">
-            <input type="text" name="q" placeholder="Zoek incidenten..." value="{{ search_query or '' }}" class="search-input">
-            <button type="submit" class="search-button">Zoeken</button>
+            <input type="text" name="q" placeholder="Search incidents..." value="{{ search_query or '' }}" class="search-input">
+            <button type="submit" class="search-button">Search</button>
         </form>
 
         {% if search_results %}
         <div class="search-results-container">
-            <h3>Zoekresultaten voor "{{ search_query }}"</h3>
+            <h3>Search results for "{{ search_query }}"</h3>
             <table class="search-results-table">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Titel</th>
-                        <th>Jaar</th>
-                        <th>Land</th>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>Country</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,7 +55,7 @@
             </table>
         </div>
         {% elif search_query %}
-        <p class="no-results">Geen resultaten gevonden voor "{{ search_query }}"</p>
+        <p class="no-results">No results found for "{{ search_query }}"</p>
         {% endif %}
     </div>
 </body>

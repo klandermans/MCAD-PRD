@@ -1,24 +1,25 @@
 # MCAD-RPD
 
-## Overzicht
+## Overview
 
-Deze repository bevat de source voor MCAD-RPD, een kleine analyse van de Marine Cyber Attack Database (MCAD) gemaakt in R, DuckDB en Python.
+This repository contains the source code for MCAD-RPD, a small-scoped analysis of the Marine Cyber Attack Database (MCAD) created in R, DuckDB, and Python.
 
-## Installatie
+## Installation
 
-Voer het setup script uit:
+Run the setup script:
 ```bash
 bash setup.sh
 ```
 
-## Gebruik
+## Usage
 
-Data verwerken:
+Process data:
 ```bash
 Rscript src/main.r
 ```
 
-Data bekijken:
+View data:
 ```bash
+source .venv/bin/activate
 python src/display.py
 ```

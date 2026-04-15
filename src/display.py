@@ -8,11 +8,11 @@ app = flask.Flask(__name__, template_folder='templates', static_folder='template
 def home():
     con = duckdb.connect("data/mcad.duckdb")
     try:
-        # Alle tables die we hebben
+        # All available tables
         table_names = ['incidents', 'victims', 'joined', 'filtered', 'aggregated']
-        
-        # DuckDB Search functionaliteit
-        # Zet resultaten rows om naar dictionary entries
+
+        # DuckDB Search functionality
+        # Convert result rows to dictionary entries
         search_query = flask.request.args.get('q')
         search_results = None
         if search_query:
@@ -21,14 +21,14 @@ def home():
                 con.execute("LOAD fts")
                 query = """
                     SELECT referenceNumber, title, method, year, viccountry, area,
-                           fts_main_joined.match_bm25(referenceNumber, ?) AS score 
-                    FROM joined 
-                    WHERE score IS NOT NULL 
-                    ORDER BY score DESC 
+                           fts_main_joined.match_bm25(referenceNumber, ?) AS score
+                    FROM joined
+                    WHERE score IS NOT NULL
+                    ORDER BY score DESC
                     LIMIT 25
                 """
                 res = con.execute(query, [search_query]).fetchall()
-                
+
                 search_results = []
                 for row in res:
                     search_results.append({
@@ -53,7 +53,7 @@ def home():
 def show_table(table_name):
     con = duckdb.connect("data/mcad.duckdb")
     try:
-        # Haal info uit gegeven table
+        # Get all rows from given table
         result = con.execute(f'SELECT * FROM "{table_name}"')
         columns = [desc[0] for desc in result.description]
         data = result.fetchall()
