@@ -80,10 +80,9 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add data/data.json html/
-          # Only commit if there are changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
             git commit -m "Hourly update: data and rendered HTML"
-            git push
+            git push origin HEAD
           fi
